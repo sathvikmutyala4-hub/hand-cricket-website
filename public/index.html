@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101914">
+  <title>Hand Cricket — Play your way</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" id="brandHome" aria-label="Hand Cricket home">
+        <span class="brand-mark">HC</span>
+        <span><strong>HAND CRICKET</strong><small>OUR GAME. OUR RULES.</small></span>
+      </a>
+      <div class="top-actions">
+        <span class="online-pill"><i></i> ONLINE PLAY</span>
+        <button class="icon-button" id="rulesButton" aria-label="Show rules" title="Rules">?</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow"><span class="eyebrow-line"></span> THE CLASSIC, CONNECTED</div>
+        <h1>Your numbers.<br><em>Your game.</em></h1>
+        <p class="hero-copy">The hand-cricket rivalry starts here. Challenge a friend, build a tournament, and make every number count.</p>
+        <div class="hero-stats">
+          <div><strong>01</strong><span>Pick your mode</span></div>
+          <div><strong>02</strong><span>Invite your rival</span></div>
+          <div><strong>03</strong><span>Play your innings</span></div>
+        </div>
+      </section>
+
+      <section class="mode-section" id="homeModes">
+        <div class="section-heading"><div><span class="eyebrow">CHOOSE YOUR EXPERIENCE</span><h2>How do you want to play?</h2></div><span class="section-note">THREE WAYS TO PLAY</span></div>
+        <div class="mode-grid">
+          <article class="mode-card featured">
+            <div class="card-top"><span class="mode-icon lightning">↯</span><span class="tag">FASTEST START</span></div>
+            <h3>Quick Play</h3>
+            <p>Zero setup. One rival. One wicket. Get straight into the game.</p>
+            <ul><li>Anonymous player labels</li><li>Single-wicket innings</li><li>Custom overs or standard formats</li></ul>
+            <button class="primary-button full" data-mode="quick">Play quick match <span>↗</span></button>
+          </article>
+          <article class="mode-card">
+            <div class="card-top"><span class="mode-icon people">♟</span><span class="tag muted-tag">HEAD TO HEAD</span></div>
+            <h3>Custom Match</h3>
+            <p>Bring the names, set the format, and settle the score.</p>
+            <ul><li>Player names</li><li>Multi-wicket team innings setup</li><li>Custom, T20, ODI and Test formats</li></ul>
+            <button class="secondary-button full" data-mode="custom">Set up a match <span>↗</span></button>
+          </article>
+          <article class="mode-card">
+            <div class="card-top"><span class="mode-icon trophy">♜</span><span class="tag muted-tag">BUILD A COMPETITION</span></div>
+            <h3>Tournament</h3>
+            <p>Create teams, manage fixtures, and follow every player's performance.</p>
+            <ul><li>Flexible teams and rosters</li><li>League or knockout format</li><li>Player scorecards and standings</li></ul>
+            <button class="secondary-button full" data-mode="tournament">Create tournament <span>↗</span></button>
+          </article>
+        </div>
+      </section>
+
+      <section class="workspace hidden" id="setupPanel">
+        <div class="workspace-heading"><button class="back-button" id="backHome">← Back</button><span class="eyebrow" id="setupEyebrow">MATCH SETUP</span></div>
+        <div id="setupContent"></div>
+      </section>
+
+      <section class="workspace hidden" id="roomPanel">
+        <div class="workspace-heading"><button class="back-button" id="roomBack">← Home</button><span class="live-label"><i></i> MATCH ROOM</span></div>
+        <div id="roomContent"></div>
+      </section>
+
+      <section class="workspace hidden" id="tournamentPanel">
+        <div class="workspace-heading"><button class="back-button" id="tournamentBack">← Home</button><span class="eyebrow">TOURNAMENT DESK</span></div>
+        <div id="tournamentContent"></div>
+      </section>
+
+      <section class="below-fold" id="howItWorks">
+        <div><span class="eyebrow">SIMPLE RULES. BIG MOMENTS.</span><h2>One number can change everything.</h2></div>
+        <div class="rule-summary"><span class="rule-number">0–6</span><div><strong>Batter picks 0 to 6</strong><p>Zero is a special no-run choice available only to the batter.</p></div></div>
+        <div class="rule-summary"><span class="rule-number">1–6</span><div><strong>Bowler picks 1 to 6</strong><p>Matching numbers mean a wicket. Different numbers score the batter's choice.</p></div></div>
+      </section>
+    </main>
+    <footer><span>HAND CRICKET <b>ARENA</b></span><span>Made for friendly rivalries.</span><button id="footerRules">Game rules ↗</button></footer>
+  </div>
+
+  <dialog id="rulesDialog" class="rules-dialog">
+    <div class="dialog-head"><div><span class="eyebrow">BEFORE THE FIRST BALL</span><h2>How to play</h2></div><button class="icon-button" id="closeRules" aria-label="Close">×</button></div>
+    <div class="rules-list">
+      <div><b>01</b><p><strong>Choose together.</strong><br>Both players lock in a number before either choice is revealed.</p></div>
+      <div><b>02</b><p><strong>Score your number.</strong><br>If the numbers differ, the batter scores the number they picked.</p></div>
+      <div><b>03</b><p><strong>Matching numbers = OUT.</strong><br>In Quick Play, one wicket ends the innings. Custom and tournament formats are designed for multiple batters.</p></div>
+      <div><b>04</b><p><strong>Remember the zero.</strong><br>Only the batter can choose 0. It scores no runs and cannot be a dismissal.</p></div>
+    </div>
+  </dialog>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
